@@ -15,7 +15,33 @@
         <h1>Liste des produits</h1>
         <div class="row">
             <?php
-            for ($i = 0; $i < 4; $i++) {
+            require_once "connexion.php";
+            $sql = "SELECT * FROM `produit`";
+            $connexion = new connexion();
+            $pdo = $connexion->getConnexion();
+            $res = $pdo->query($sql);
+            //var_dump($res);
+            $produits = $res->fetchAll(PDO::FETCH_OBJ);
+            //var_dump($produits);
+            while ($produit = next($produits)) {
+            ?>
+                <div class="col-3">
+                    <div class="card">
+                        <img src="<?= $produit->image ?>" class="img-fluid" alt="Photo du produit">
+                        <div class="card-body">
+                            <h2 class="card-title"><?= $produit->libelle ?></h2>
+                            <p class="card-text"><?= $produit->description ?></p>
+                            <a href="#" class="btn btn-success btn-sm">Détail</a>
+                            <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart"></i>Ajouter</a>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+            <!--
+            <?php
+            //for ($i = 0; $i < 4; $i++) {
             ?>
                 <div class="col-3">
                     <div class="card">
@@ -29,8 +55,9 @@
                     </div>
                 </div>
             <?php
-            }
+            //}
             ?>
+            -->
         </div>
         <?php include "footer.php" ?>
     </div>

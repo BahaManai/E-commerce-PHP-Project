@@ -7,7 +7,11 @@ class connexion
         $dns = 'mysql:host=localhost;dbname=e_commerce';
         $user = 'root';
         $mdp = '';
-        $this->connexion = new PDO($dns, $user, $mdp);
+        try {
+            $this->connexion = new PDO($dns, $user, $mdp);
+        } catch (Exception $e) {
+            echo "Problème de connexion !<br>" . $e->getMessage();
+        }
     }
 
     public function getConnexion()
@@ -15,11 +19,3 @@ class connexion
         return $this->connexion;
     }
 }
-
-/* 
-try {
-    $connexion = new PDO($dns, $user, $mdp);
-} catch (Exception $e) {
-    echo "Problème de connexion !<br>" . $e->getMessage();
-}
-*/
