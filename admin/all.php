@@ -1,13 +1,8 @@
 <?php
 ob_start();
-require_once "../classes/CRUD_Produit.php";
+require_once "../Classes/CRUD_Produit.php";
 $crud = new CRUD_Produit();
-// NE9ES
-$connexion = new connexion();
-$pdo = $connexion->getConnexion();
-$sql = "SELECT * FROM `produit`";
-$res = $pdo->query($sql); //PDO Statement
-$LesProduits = $res->fetchAll(PDO::FETCH_NUM);
+$LesProduits = $crud->findAll();
 //echo "<pre>";
 //var_dump($LesProduits);
 //echo "</pre>";

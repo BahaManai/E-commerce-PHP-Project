@@ -15,7 +15,12 @@ class CRUD_Produit
         $res = $this->pdo->query($sql);
         return $res->fetchAll(PDO::FETCH_NUM);
     }
-    function find($id) {}
+    function find($id)
+    {
+        $sql = "SELECT * from produit WHERE id=$id";
+        $res = $this->pdo->query($sql);
+        return $res->fetch(PDO::FETCH_NUM);
+    }
     function delete($id)
     {
         $sql = "delete from produit where id=$id";
