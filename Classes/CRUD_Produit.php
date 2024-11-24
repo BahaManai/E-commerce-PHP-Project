@@ -27,5 +27,16 @@ class CRUD_Produit
         $res = $this->pdo->exec($sql);
         return $res;
     }
-    function add(produit $produit) {}
+    function add(produit $produit)
+    {
+        $lib = $produit->getLibelle();
+        $pu = $produit->getPrix();
+        $qte = $produit->getQtte();
+        $des = $produit->getDescription();
+        $img = $produit->getImage();
+        $pro = $produit->getPromo();
+        $sql = "INSERT INTO `produit`  VALUES (NULL, '$lib', $pu, $qte, '$des', '$img', $pro);";
+        $res = $this->pdo->exec($sql);
+        return $res;
+    }
 }
