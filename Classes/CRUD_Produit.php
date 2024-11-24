@@ -39,4 +39,12 @@ class CRUD_Produit
         $res = $this->pdo->exec($sql);
         return $res;
     }
+    function update($id, $lib, $pu, $qte, $des, $img, $pro)
+    {
+        $sql = "UPDATE `produit` SET  libelle = '$lib', prix = $pu, qtte = $qte,
+        descr = '$des', image = '$img', promo = $pro
+        where id=$id";
+        $res = $this->pdo->exec($sql);
+        return $res;
+    }
 }
