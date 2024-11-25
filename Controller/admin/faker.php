@@ -1,5 +1,5 @@
 <?php
-require_once "../connexion.php";
+require_once "../../Model/connexion.php";
 
 $connexion = new connexion();
 $pdo = $connexion->getConnexion();

@@ -1,6 +1,6 @@
 <?php
 require_once "produit.php";
-require_once "../connexion.php";
+require_once "connexion.php";
 class CRUD_Produit
 {
     private $pdo;
@@ -19,7 +19,7 @@ class CRUD_Produit
     {
         $sql = "SELECT * from produit WHERE id=$id";
         $res = $this->pdo->query($sql);
-        return $res->fetch(PDO::FETCH_NUM);
+        return $res->fetch(PDO::FETCH_NUM); // la résultat est retourné au controller
     }
     function delete($id)
     {
