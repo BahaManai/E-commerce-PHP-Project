@@ -5,7 +5,7 @@ $crud = new CRUD_Produit();
 $id = $_GET['id'];
 $produit = $crud->find($id);
 ?>
-<form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" class="form-control">
+<form action="update.php?id=<?= $id ?>" method="post" class="form-control">
     <label for="libelle">Libellé :</label><input type="text" name="libelle" class="form-control" value="<?= $produit[1] ?>"><br>
     <label for="prix">Prix :</label><input type="text" name="prix" class="form-control" value="<?= $produit[2] ?>"><br>
     <label for="qtte">Quantité :</label><input type="text" name="qtte" class="form-control" value="<?= $produit[3] ?>"><br>
