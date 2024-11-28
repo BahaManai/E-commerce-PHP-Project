@@ -14,7 +14,7 @@ class connexion
         }
     }
 
-    public function getConnexion()
+    public function getConnexion() //PDO
     {
         return $this->connexion;
     }
